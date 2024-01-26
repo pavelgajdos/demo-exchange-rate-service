@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    generate-unique-name: false
+    name: exchange-rates
+    url: jdbc:h2:file:./data/h2-db
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: "validate" # change to update if we need to update schemas in the H2 db file
+    show-sql: true
+
+exchangeRates:
+  baseCurrency: EUR
+  supportedCurrencies: CZK,USD
+  apis:
+    fixerio:
+      baseUrl: http://data.fixer.io/api/ # Free plan does not support HTTPS
+      apiKey: 6917e2c196569e6caad2790b1cb20c6d # !!!! This should not be here, but for the sake of the demo we can make an exception, right? :-)
+    anotherservice:
+      baseUrl: http://example23232.com/api/
+      apiKey: none
