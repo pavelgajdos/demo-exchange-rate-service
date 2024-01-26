@@ -20,7 +20,7 @@ public interface ExchangeRateRepository extends JpaRepository<ExchangeRate, Long
     boolean existsByBaseCurrencyAndDateAndCurrency(String baseCurrency, LocalDate date, String currency);
     boolean existsByBaseCurrencyAndDateAndCurrencyIsIn(String baseCurrency, LocalDate date, Collection<String> currencies);
 
-    @Query("SELECT COUNT(DISTINCT e.date) FROM ExchangeRate e WHERE e.baseCurrency = ?1 AND e.date BETWEEN ?3 AND ?4 AND e.currency = ?2")
+    @Query("SELECT COUNT(DISTINCT e.date) FROM ExchangeRate e WHERE e.baseCurrency = ?3 AND e.date BETWEEN ?1 AND ?2 AND e.currency = ?4")
     long countDistinctDatesBetweenForCurrency(LocalDate dateFrom, LocalDate dateTo, String baseCurrency, String currency);
 
     default boolean allDataExistInDateRange(String baseCurrency, String currency, LocalDate dateFrom, LocalDate dateTo) {
