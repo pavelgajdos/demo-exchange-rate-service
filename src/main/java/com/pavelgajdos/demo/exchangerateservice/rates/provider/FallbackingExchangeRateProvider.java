@@ -20,7 +20,8 @@ public class FallbackingExchangeRateProvider implements ExchangeRateProvider {
         this.clients = clients;
     }
 
-    public ExchangeRateProvider getFirst() throws NoExchangeRateProviderException {
+    @NotNull
+    private ExchangeRateProvider getFirst() throws NoExchangeRateProviderException {
         if (clients.isEmpty()) {
             throw new NoExchangeRateProviderException();
         }
